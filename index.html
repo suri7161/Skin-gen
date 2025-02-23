@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마인크래프트 스킨 생성기</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="libs/three.min.js"></script>
+</head>
+<body>
+
+    <!-- 🎨 사용자용 UI -->
+    <div id="skin-container">
+        <canvas id="skinCanvas" width="64" height="64"></canvas>
+        <div id="3d-preview"></div>
+    </div>
+
+    <div id="controls">
+        <label>머리 스타일:
+            <select id="hairStyle"></select>
+        </label>
+
+        <label>머리 색상:
+            <select id="hairColor"></select>
+        </label>
+
+        <label>눈 스타일:
+            <select id="eyeStyle"></select>
+        </label>
+
+        <label>옷 스타일:
+            <select id="outfitStyle"></select>
+        </label>
+
+        <button onclick="randomizeSkin()">랜덤 생성</button>
+        <button onclick="downloadSkin()">다운로드</button>
+    </div>
+
+    <!-- ⚙️ 개발자 관리 패널 -->
+    <div id="admin-panel">
+        <h2>개발자 관리 패널</h2>
+
+        <h3>템플릿 추가</h3>
+        <label>카테고리:
+            <select id="categorySelect">
+                <option value="hair">머리</option>
+                <option value="eyes">눈</option>
+                <option value="outfit">옷</option>
+            </select>
+        </label>
+
+        <label>이름: <input type="text" id="templateName"></label>
+        <label>이미지 업로드: <input type="file" id="fileInput"></label>
+        <button onclick="addTemplate()">추가</button>
+
+        <h3>색상 추가</h3>
+        <label>카테고리:
+            <select id="colorCategorySelect">
+                <option value="hair">머리</option>
+                <option value="eyes">눈</option>
+                <option value="outfit">옷</option>
+            </select>
+        </label>
+
+        <label>색상: <input type="color" id="colorPicker"></label>
+        <button onclick="addColor()">추가</button>
+
+        <h3>색상 목록</h3>
+        <ul id="colorList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
